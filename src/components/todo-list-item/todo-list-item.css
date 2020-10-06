@@ -1,0 +1,25 @@
+
+/* .todo-list-item.important{
+    color: steelblue;
+    font-weight: bold;
+} */
+
+.list-item{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.todo-list-item{
+    font-size: 1.25rem;
+    margin-right: auto;
+}
+
+.list-item button{
+    margin-right: 5px;
+    width: 30px;
+}
+
+.list-item button:last-child{
+    margin-right: 0;
+}

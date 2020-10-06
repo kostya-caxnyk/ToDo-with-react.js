@@ -1,0 +1,17 @@
+.todo-app{
+    margin: 100px auto;
+    max-width: 500px;
+    padding: 15px;
+}
+
+.search-block{
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0;
+}
+
+.search-block input{
+    margin-right: auto;
+    padding: 0 10px;
+    width: 100%;
+}
