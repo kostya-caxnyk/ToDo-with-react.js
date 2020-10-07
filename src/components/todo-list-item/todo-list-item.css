@@ -13,6 +13,8 @@
 .todo-list-item{
     font-size: 1.25rem;
     margin-right: auto;
+    color: "black";
+    font-weight: normal;
 }
 
 .list-item button{
@@ -22,4 +24,13 @@
 
 .list-item button:last-child{
     margin-right: 0;
+}
+
+.todo-list-item.done{
+    text-decoration: line-through;
+}
+
+.todo-list-item.important{
+    color: steelblue;
+    font-weight: bold;
 }

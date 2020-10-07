@@ -1,22 +1,55 @@
 import React from 'react';
 import "./todo-list-item.css";
 
-const ToDoListItem = ({label, important = false}) =>{
-    const style = {
-        color: important ? "steelblue" : "black",
-        fontWeight: important ? "bold" : "normal",
+export default class ToDoListItem extends React.Component {
+
+    constructor(){
+        super();
+        this.state = {
+            done: false,
+            important: false,
+            deleted: false,
+        }
+
+        this.onLabelClick = () => {
+            this.setState((state) => {
+                return {
+                    done: !state.done,
+                }
+            })
+        }
+
+        this.onImportantButton = () => {
+            this.setState((state) => {
+                return {
+                    important: !state.important,
+                }
+            })
+        }
     }
 
-    return (
-        <span className="list-item">
-            <span style={style} className="todo-list-item important">{label}</span>
+    render(){
+        const {label, onDeleted} = this.props;
+        const {done, important} = this.state;
+        let classNames = "todo-list-item";
 
-            <button className="btn btn-outline-danger btn-sm" type="button"><i className="fa fa-trash-o" /></button>
+        if(done){
+            classNames += " done";
+        }
 
-            <button className="btn btn-outline-success btn-sm" type="button"><i className="fa fa-exclamation" /></button>
-        </span>
-        
-    )
+        if(important){
+            classNames += " important";
+        }
+    
+        return (
+            <span className="list-item">
+                <span className={classNames} onClick={this.onLabelClick}>{label}</span>
+    
+                <button className="btn btn-outline-danger btn-sm" type="button" onClick={onDeleted}><i className="fa fa-trash-o" /></button>
+    
+                <button className="btn btn-outline-success btn-sm" type="button" onClick={this.onImportantButton}><i className="fa fa-exclamation" /></button>
+            </span>
+        )
+    }
 }
-
-export default ToDoListItem;
+ 

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Component} from "react";
 
 import ToDoList from "../todo-list";
 import SearchPanel from "../search-panel";
@@ -7,24 +7,43 @@ import ItemStatusFilter from "../item-status-filter";
 
 import "./app.css";
 
-const App = () => {
-    const todoData = [
-        {label: "learn React.js", important: false, id: 1},
-        {label: "learn React.js", important: false, id: 2},
-        {label: "just learn React.js", important: true, id: 3},
-    ] 
+export default class App extends Component{
 
-    return (
-        <div className="todo-app">
-            <AppHeader/>
-            <div className="search-block">    
-                <SearchPanel/>
-                <ItemStatusFilter/>
+    constructor(){
+        super();
+        
+        this.state = {
+            todoData: [
+                {label: "learn React.js", important: false, id: 1},
+                {label: "learn React.js", important: false, id: 2},
+                {label: "just learn React.js", important: true, id: 3},
+            ],
+        }
+
+        this.deleteComponent = (id) => {
+            this.setState((state) => {
+                const newComponentsArr = state.todoData.filter(e => e.id !== id);
+
+                return {
+                    todoData: newComponentsArr,
+                }
+            })
+        }
+    }
+    
+    render(){
+        return (
+            <div className="todo-app">
+                <AppHeader/>
+
+                <div className="search-block">    
+                    <SearchPanel/>
+                    <ItemStatusFilter/>
+                </div>
+                
+                <ToDoList todoData={this.state.todoData} onDeleted={this.deleteComponent}/>
             </div>
-            
-            <ToDoList todoData={todoData}/>
-        </div>
-    )
-}
-
-export default App;
+        )
+    }
+} 
+    
