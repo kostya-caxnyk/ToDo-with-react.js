@@ -14,9 +14,9 @@ export default class App extends Component{
         
         this.state = {
             todoData: [
-                {label: "learn React.js", important: false, id: 1},
-                {label: "learn React.js", important: false, id: 2},
-                {label: "just learn React.js", important: true, id: 3},
+                {label: "вчити promise learn.javascript", important: false, id: 1},
+                {label: "матем кр", important: false, id: 2},
+                {label: "learn React.js", important: true, id: 3},
             ],
         }
 
@@ -47,3 +47,4 @@ export default class App extends Component{
     }
 } 
     
+
