@@ -34,3 +34,7 @@
     color: steelblue;
     font-weight: bold;
 }
+
+.todo-list-item.invisible{
+    display: none;
+}

@@ -1,0 +1,11 @@
+.add-item{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.add-item input{
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
